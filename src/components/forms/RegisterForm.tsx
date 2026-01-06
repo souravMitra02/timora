@@ -1,5 +1,6 @@
 "use client";
 
+import { RegisterType } from "@/types";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -15,6 +16,8 @@ interface RegisterForm {
   reminder: boolean;
 }
 
+
+
 export default function RegisterPage() {
   const {
     register,
@@ -27,8 +30,20 @@ export default function RegisterPage() {
 
   const password = watch("password");
 
-  const onSubmit: SubmitHandler<RegisterForm> = (data) => {
-    console.log("Register Data:", data);
+  const onSubmit: SubmitHandler<RegisterForm> = async (data) => {
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      alert("User created!");
+    } else {
+      alert(result.error || "Something went wrong");
+    }
   };
 
   return (

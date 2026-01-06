@@ -1,1 +1,6 @@
-// Placeholder: shared TypeScript interfaces (no implementation)
+export interface RegisterType {
+  name: string;
+  email: string;
+  password: string;
+}
+
