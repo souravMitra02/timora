@@ -22,7 +22,20 @@ export default function LoginPage() {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    console.log("Form Data:", data);
+      console.log("Form Data:", data);
+      const res = await fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+      const result = await res.json();
+      
+      if (res.ok) {
+    console.log("Logged in user:", result.user);
+  } else {
+    alert(result.error);
+  }
   };
 
   return (
