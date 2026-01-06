@@ -1,26 +1,20 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme inline{
+   --color-primary: #FACC15;   
+  --hover-color: #EAB308;   
+ --color-text-muted: #6B7280;
+  --color-text-primary: #111827;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+   background-color: #FFFBEA;
+  color: #020617;
+}
+
+.input {
+  @apply w-full rounded-md border border-slate-200 bg-slate-100 px-4 py-2 focus:border-indigo-500 focus:outline-none;
 }
