@@ -1,4 +1,4 @@
-"use client"; // Important for using useState / useEffect
+"use client";
 
 import { useState } from "react";
 import TaskForm from "@/components/forms/TaskForm";
@@ -7,7 +7,8 @@ import TaskList from "@/components/TaskList";
 export default function DashboardPage() {
   const [refresh, setRefresh] = useState(false);
 
-  const userId = "USER_ID_HERE"; // replace with logged-in user ID
+  // Replace with actual logged-in userId
+  const userId = "USER_ID_HERE";
 
   return (
     <div className="p-8 bg-[#0f172a] min-h-screen text-white">
@@ -18,4 +19,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
